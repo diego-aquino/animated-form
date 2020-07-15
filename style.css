@@ -20,6 +20,8 @@ section {
     justify-content: center;
     align-items: center;
 
+    overflow: hidden;
+
     height: 100%;
 }
 
@@ -37,11 +39,50 @@ form {
     border-radius: 5px;
 
     background-color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+}
+
+form.entrance {
+    animation: form-entrance 400ms;
+}
+
+form.reject {
+    animation: form-reject 250ms;
+}
+
+form.submitted {
+    animation: form-exit 400ms;
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
 }
 
 form .input-block {
     margin-bottom: 20px;
     width: 280px;
+
+    animation: inner-form-entrance 250ms;
+    animation-fill-mode: backwards;
+}
+
+form .input-block:nth-child(1) {
+    animation-delay: 250ms;
+}
+
+form .input-block:nth-child(2) {
+    animation-delay: 320ms;
+}
+
+form.submitted .input-block {
+    animation: inner-form-exit 250ms;
+    animation-fill-mode: forwards;
+}
+
+form.submitted .input-block:nth-child(1) {
+    animation-delay: 150ms;
+}
+
+form.submitted .input-block:nth-child(2) {
+    animation-delay: 70ms;
 }
 
 form .input-block label {
@@ -52,9 +93,9 @@ form .input-block label {
 
 form .input-block input {
     width: 100%;
-    
+
     font-size: 16px;
-    color: #1f0a0e;
+    color: #703e05;
 
     display: block;
     margin-top: 8px;
@@ -63,7 +104,7 @@ form .input-block input {
     border: 1px solid #CEB5A7;
 
     outline-color: #CEB5A7;
-    background-color: #f4a86654;
+    background-color: #f4a86623;
 }
 
 form .login-button {
@@ -81,10 +122,77 @@ form .login-button {
     background-color: #F9BC76;
     transition: background-color 350ms, border-color 350ms;
 
+    animation: inner-form-entrance 250ms;
+    animation-delay: 400ms;
+    animation-fill-mode: backwards;
+
     outline: none;
+}
+
+form.submitted .login-button {
+    animation: inner-form-exit 250ms;
+    animation-fill-mode: forwards;
 }
 
 form .login-button:hover {
     background-color: #FBCF9D;
     border-color: #F8A94F;
+}
+
+@keyframes form-entrance {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+@keyframes form-reject {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    25%,
+    75% {
+        transform: translateX(-4%);
+    }
+    50% {
+        transform: translateX(4%);
+    }
+}
+
+@keyframes form-exit {
+    from {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateX(100%);
+    }
+}
+
+@keyframes inner-form-entrance {
+    from {
+        opacity: 0;
+        transform: translateX(-35%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes inner-form-exit {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(35%);
+    }
 }
