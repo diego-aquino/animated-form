@@ -139,6 +139,28 @@ form .login-button:hover {
     border-color: #F8A94F;
 }
 
+.square-container {
+    width: 100vw;
+    height: 110vh;
+
+    position: absolute;
+    top: -10vh;
+    z-index: -1;
+
+    overflow: hidden;
+}
+
+.square-container li {
+    list-style: none;
+    background-color: #3B2002;
+
+    position: absolute;
+    bottom: 0;
+
+    animation-name: square-movement;
+    animation-iteration-count: infinite;
+}
+
 @keyframes form-entrance {
     from {
         opacity: 0;
@@ -194,5 +216,14 @@ form .login-button:hover {
     to {
         opacity: 0;
         transform: translateX(35%);
+    }
+}
+
+@keyframes square-movement {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-150vh) rotate(1800deg);
     }
 }
