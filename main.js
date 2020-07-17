@@ -1,6 +1,8 @@
 const form = document.querySelector('form');
 const loginButton = document.querySelector('.login-button');
 const fields = document.querySelectorAll('.input-block input');
+const squareContainer = document.querySelector('.square-container');
+const pageTitle = document.querySelector('.page-title');
 
 loginButton.addEventListener('click', validateForm);
 
@@ -23,6 +25,8 @@ function handleValidationError() {
 
 function proceedWithSubmission() {
     form.classList.add('submitted');
+    squareContainer.classList.add('exit');
+    pageTitle.classList.add('exit');
 }
 
 form.addEventListener('animationend', handleAnimationEnd);
@@ -39,8 +43,6 @@ function handleAnimationEnd({ animationName }) {
 createBackgroundSquares();
 
 function createBackgroundSquares() {
-    const squareContainer = document.querySelector('ul.square-container');
-
     const numOfSquares = randomInt(15, 25);
 
     for (let i = 0; i < numOfSquares; i++) {

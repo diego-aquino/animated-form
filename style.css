@@ -25,12 +25,18 @@ section {
     height: 100%;
 }
 
-h1 {
+.page-title {
     font-size: 32px;
     color: black;
     letter-spacing: 1px;
 
     margin-bottom: 20px;
+}
+
+.page-title.exit {
+    animation: page-title-exit 250ms;
+    animation-fill-mode: forwards;
+    animation-delay: 750ms;
 }
 
 form {
@@ -150,6 +156,12 @@ form .login-button:hover {
     overflow: hidden;
 }
 
+.square-container.exit {
+    animation: square-container-exit 250ms;
+    animation-fill-mode: forwards;
+    animation-delay: 750ms;
+}
+
 .square-container li {
     list-style: none;
     background-color: #3B2002;
@@ -225,5 +237,24 @@ form .login-button:hover {
     }
     to {
         transform: translateY(-150vh) rotate(1800deg);
+    }
+}
+
+@keyframes page-title-exit {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes square-container-exit {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
     }
 }
