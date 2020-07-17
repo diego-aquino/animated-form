@@ -1,8 +1,5 @@
-const form = document.querySelector('form');
-const loginButton = document.querySelector('.login-button');
 const fields = document.querySelectorAll('.input-block input');
-const squareContainer = document.querySelector('.square-container');
-const pageTitle = document.querySelector('.page-title');
+const loginButton = document.querySelector('.login-button');
 
 loginButton.addEventListener('click', validateForm);
 
@@ -18,6 +15,10 @@ function validateForm(event) {
 
     proceedWithSubmission();
 }
+
+const form = document.querySelector('form');
+const squareContainer = document.querySelector('.square-container');
+const pageTitle = document.querySelector('.page-title');
 
 function handleValidationError() {
     form.classList.add('reject');
@@ -48,23 +49,20 @@ function createBackgroundSquares() {
     for (let i = 0; i < numOfSquares; i++) {
         const square = document.createElement('li');
 
-        const size = randomInt(40, 100);
-        const positionX = randomInt(0, 99);
-        const positionY = - size;
+        const sizeInPixels = randomInt(40, 100);
+        square.style.width = `${sizeInPixels}px`;
+        square.style.height = `${sizeInPixels}px`;
 
-        square.style.width = `${size}px`;
-        square.style.height = `${size}px`;
-
-        square.style.bottom = `${positionY}px`;
-        square.style.left = `${positionX}%`;
+        const positionXInVW = randomInt(0, 99);
+        const positionYInPixels = - sizeInPixels;
+        square.style.left = `${positionXInVW}vw`;
+        square.style.bottom = `${positionYInPixels}px`;
 
         const opacity = randomInt(20, 50);
-
         square.style.opacity = `${opacity / 100}`;
 
         const delay = randomInt(0, 30);
         const duration = randomInt(15, 35);
-
         square.style.animationDuration = `${duration}s`;
         square.style.animationDelay = `${delay}s`;
         square.style.animationTimingFunction = 'linear';
@@ -74,6 +72,6 @@ function createBackgroundSquares() {
 }
 
 function randomInt(start, end) {
-    // random integer from start to end (inclusive)
+    // returns a random integer from 'start' to 'end' (inclusive)
     return Math.round(Math.random() * (end - start)) + start;
 }

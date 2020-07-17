@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    background-color: #F9BC76;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    height: 100%;
+}
+
+.page-title {
+    font-size: 32px;
+    color: black;
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+}
+
+.page-title.exit {
+    animation: page-title-exit 250ms;
+    animation-fill-mode: forwards;
+    animation-delay: 750ms;
+}
+
+@keyframes page-title-exit {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

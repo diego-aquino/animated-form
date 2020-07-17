@@ -1,0 +1,46 @@
+.square-container {
+    width: 100vw;
+    height: 110vh;
+
+    position: absolute;
+    top: -10vh;
+    z-index: -1;
+
+    overflow: hidden;
+}
+
+.square-container.exit {
+    animation: square-container-exit 250ms;
+    animation-fill-mode: forwards;
+    animation-delay: 750ms;
+}
+
+.square-container li {
+    list-style: none;
+    background-color: #3B2002;
+
+    position: absolute;
+    bottom: 0;
+
+    animation-name: square-movement;
+    animation-iteration-count: infinite;
+}
+
+@keyframes square-movement {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-150vh) rotate(1800deg);
+    }
+}
+
+@keyframes square-container-exit {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
