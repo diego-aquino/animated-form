@@ -1,5 +1,5 @@
-# Animated Form:
+# Animated Form
 
-Create an animated form using only JavaScript, HTML and CSS.
+> Create an amazing animated form using only JavaScript, HTML and CSS.
 
-> [Pending Screenshot...]
+![Sample GIF](assets/demo/sample.gif)
