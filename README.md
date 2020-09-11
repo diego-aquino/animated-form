@@ -2,7 +2,7 @@
     Animated Form
 </h1>
 
-<p align="center"> Create a lightweight animated form using  JavaScript, HTML and CSS.</p>
+<p align="center"> Create a lightweight animated form using  JavaScript, HTML, and CSS.</p>
 
 <p align="center">
 
